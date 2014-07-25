@@ -15,7 +15,7 @@ For educational purposes only.
  - Configs, Databases, SQLi's (dork)
  - Full Path Disclosures / Users (fpds) -> (brutefpds)
  - Top websites info (top)
- - 
+  
 - Massive scanning
  - XSS, SQLi, LFI, RFI (scan)
  - FTP, SSH, DB's, IMAP (multibruter)
@@ -47,11 +47,11 @@ For educational purposes only.
 #Others
 
 MultiBrtuer requirements (php5):
-php5-mysql - for mysql connections
-php5-pgsql - for postgresql connections
-libssh2-php - for ssh connections
-php5-sybase - for mssql connections
-php5-imap - for imap connections
+ - php5-mysql - for mysql connections
+ - php5-pgsql - for postgresql connections
+ - libssh2-php - for ssh connections
+ - php5-sybase - for mssql connections
+ - php5-imap - for imap connections
 
 Screens:
  -
