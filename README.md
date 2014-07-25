@@ -3,7 +3,7 @@
 
 FuckShitUp 0.1 - Multi Vulnerabilities Scanner
 
-Basically, FSU is bunch of tools written in PHP-CLI. Using build-in functions, you are able to grab url's using search engines - and so, dork for interesting files and full path disclosures. Using list of url's, scanner will look for Cross Site Scripting, Remote File Inclusion, SQL Injection and Local File Inclusion vulnerabilities. It is able to perform mass bruteforce attacks for specific range of hosts, or bruteforce ssh with specific username taken from FPD. Whenever something interesting will be found, like vulnerability or broken auth credentials, data will be saved in .txt files - just like url's, and any other files; FSU is based on PHP and text files.
+Basically, FSU is bunch of tools written in PHP-CLI. Using build-in functions, you are able to grab url's using search engines - and so, dork for interesting files and full path disclosures. Using list of url's, scanner will look for Cross Site Scripting, Remote File Inclusion, SQL Injection and Local File Inclusion vulnerabilities. It is able to perform mass bruteforce attacks for specific range of hosts, or bruteforce ssh with specific username taken from FPD. Whenever something interesting will be found, like vulnerability or broken auth credentials, data will be saved in .txt files - just like url's, and any other files. FSU is based on PHP and text files, it's still under construction so i am aware of any potential bugs.
 
 More url's -> more vuln's.
 For educational purposes only.
@@ -54,9 +54,11 @@ MultiBrtuer requirements (php5):
  - php5-imap - for imap connections
 
 Screens:
- -
- -
- -
+ - http://i.imgur.com/WKEbVGQ.png
+ - http://i.imgur.com/PJtYWQk.png
+ - http://i.imgur.com/o8fyyLQ.png
+ - http://i.imgur.com/WY8ncBx.png
+ - http://i.imgur.com/cmoTcPY.png
 
 TODO:
  - Fix problems with grabbing large amount of url's
