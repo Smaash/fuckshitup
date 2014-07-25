@@ -65,3 +65,4 @@ TODO:
  - More search engines
  - SQL Injector
  - RFI shell uploader
+ - FSU is not secure as it should be
