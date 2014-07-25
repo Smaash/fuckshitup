@@ -1,23 +1,5 @@
 
 #Agenda
-     _____              __           .__    .__  __                
-   _/ ____\_ __   ____ |  | __  _____|  |__ |__|/  |_ __ ________  
-   \   __\  |  \_/ ___\|  |/ / /  ___/  |  \|  \   __\  |  \____ \ 
-    |  | |  |  /\  \___|    <  \___ \|   Y  \  ||  | |  |  /  |_> >
-    |__| |____/  \___  >__|_ \/____  >___|  /__||__| |____/|   __/ 
-                     \/     \/     \/     \/               |__|  v0.1
-
-   .---[SCAN]--------------------------[FILES]---------------------. 
-   | scan - Do it!                 | search - DB's serch           |
-   | multibruter - Brute dat bitch | show - Display specific file  |
-   | brutefpds - Brute ssh w/ fpd  | clear - Remove duplicates     |
-   | stat - Status                 | filter - Filter grab results  |
-   |---[TARGET]------------------------[OTHERS]--------------------| 
-   | massurl - Massive grabber     | top - Top sites scanner       |
-   | dork - Well...                | cmd - Execute OS command      |
-   | geturl - Grab url's           | help - Shit's right here      |
-   | fpds - Grab fpds & users      | exit - Quits                  |
-   '---------------------------------------------------------------'
 
 FuckShitUp 0.1 - Multi Vulnerabilities Scanner
 
@@ -28,39 +10,36 @@ For educational purposes only.
 
 #Intro
 
-Data grabbing:
+- Data grabbing:
  - URL's (geturl/massurl) -> (scan)
  - Configs, Databases, SQLi's (dork)
  - Full Path Disclosures / Users (fpds) -> (brutefpds)
  - Top websites info (top)
-
-Massive scanning:
+ - 
+- Massive scanning
  - XSS, SQLi, LFI, RFI (scan)
  - FTP, SSH, DB's, IMAP (multibruter)
  - Accurate SSH bruteforce (brutefpds)
 
 #Plan
 
-a) Web Apps
+- Web Apps
  - Grab url's via 'geturl' or 'massurl' (massurl requires list of tags as file)
  - Scan url's parameters for vulns with 'scan'
 
-b) Servers
+- Servers
  - Pick target, get ip range
  - Scan for services on each IP and bruteforce with 'multibruter'
-
- OR
-
  - Grab full path disclosures, and so linux usernames
  - Perform SSH bruteforce for specific user with 'brutefpds'
 
- c) Info grabbing
+- Info grabbing
  - Use 'dork' for automatic dorking
  - Use 'fpds' for full path disclosure grabbing
  - Use 'search' for searching someone in ur databases
  - Use 'top' for scanning all top websites of specific nation
 
- d) Others
+- Others
  - 'Stat' shows actual statistics and informations
  - 'Show' display specific file
  - 'Clear' and 'filter' - remove duplicates, remove blacklisted url's
@@ -73,6 +52,11 @@ php5-pgsql - for postgresql connections
 libssh2-php - for ssh connections
 php5-sybase - for mssql connections
 php5-imap - for imap connections
+
+Screens:
+ -
+ -
+ -
 
 TODO:
  - Fix problems with grabbing large amount of url's
