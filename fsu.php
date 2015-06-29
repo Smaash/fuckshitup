@@ -862,7 +862,7 @@ function blind_sqli($link) {
 	{
 	
 		if(strpos($link, '=') !== false) {
-			$urls = array(); //even numbers are TRUE-Statement, uneven are FALSE-Statements
+			$urls = array();
 			$params = explode("?", $link);
 			$params = explode("&", $params[1]);
 			foreach($params as $param)
